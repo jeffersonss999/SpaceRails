@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_16_182456) do
+ActiveRecord::Schema.define(version: 2019_05_16_183618) do
 
   create_table "add_ship_to_aliens", force: :cascade do |t|
     t.integer "ship_id"
@@ -37,6 +37,12 @@ ActiveRecord::Schema.define(version: 2019_05_16_182456) do
     t.integer "ship_id"
     t.index ["planet_id"], name: "index_aliens_on_planet_id"
     t.index ["ship_id"], name: "index_aliens_on_ship_id"
+  end
+
+  create_table "guns", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "planets", force: :cascade do |t|
