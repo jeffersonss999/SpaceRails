@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_09_200128) do
+ActiveRecord::Schema.define(version: 2019_05_16_182456) do
+
+  create_table "add_ship_to_aliens", force: :cascade do |t|
+    t.integer "ship_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ship_id"], name: "index_add_ship_to_aliens_on_ship_id"
+  end
 
   create_table "alien_powers", force: :cascade do |t|
     t.integer "alien_id"
@@ -27,7 +34,9 @@ ActiveRecord::Schema.define(version: 2019_05_09_200128) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "planet_id"
+    t.integer "ship_id"
     t.index ["planet_id"], name: "index_aliens_on_planet_id"
+    t.index ["ship_id"], name: "index_aliens_on_ship_id"
   end
 
   create_table "planets", force: :cascade do |t|
@@ -37,6 +46,12 @@ ActiveRecord::Schema.define(version: 2019_05_09_200128) do
   end
 
   create_table "powers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ships", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

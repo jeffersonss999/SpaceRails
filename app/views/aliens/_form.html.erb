@@ -27,6 +27,11 @@
   </div>
   
     <div class="field">
+    <%= form.label :ship %>
+    <%= collection_select(:alien, :ship_id, Ship.all, :id, :name) %>
+  </div> 
+  
+    <div class="field">
     <%= form.label :powers %>
     <%= collection_check_boxes(:alien, :power_ids, Power.all, :id, :name) %>
   </div> 
